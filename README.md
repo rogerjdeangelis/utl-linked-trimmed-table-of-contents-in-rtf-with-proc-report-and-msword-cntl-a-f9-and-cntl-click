@@ -4,6 +4,13 @@ Creating a linked trimmed table of contents in rtf and msword using cntl a f9 an
 
     %stop_submission; /* for development */
 
+    RTF                                                                                                                                                        
+    https://tinyurl.com/5h8kn7tj                                                                                                                               
+    https://github.com/rogerjdeangelis/utl-linked-trimmed-table-of-contents-in-rtf-with-proc-report-and-msword-cntl-a-f9-and-cntl-click/blob/main/utl_toc.rtf                                                                                                                                                                                                                                                                                                                      
+    DOC  (open the rtf file with msword and save as docx(                                                                                                      
+    https://tinyurl.com/5ebcc5dm                                                                                                                               
+    https://github.com/rogerjdeangelis/utl-linked-trimmed-table-of-contents-in-rtf-with-proc-report-and-msword-cntl-a-f9-and-cntl-click/blob/main/utl_toc.docx 
+
     Creating a linked trimmed table of contents in rtf and msword using cntl a f9 and cntl click;
 
     Don't forget to hit cntl-a anf f9 in word to fill in the table of contents.
