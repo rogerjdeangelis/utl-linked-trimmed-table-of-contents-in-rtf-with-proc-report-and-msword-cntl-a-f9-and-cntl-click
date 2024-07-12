@@ -4,8 +4,9 @@
 
 Creating a linked trimmed table of contents in rtf and msword using cntl a f9 and cntl click;
 
-Don't forget to hit cntl-a anf f9 in word to fill in the table of contents.
-To execute the link put the cursor on any toc entry in the YOC and hit cnth-left-click (cntl left-mouse-button)
+Don't forget to highlight the TOC and hit cntl-a anf f9 in word to fill in the table of contents.
+To execute the link put the cursor on any toc entry in the YOC and hit cntl-left-click (cntl left-mouse-button)
+To return to the TOC from any page put the cursor on the blue  'RETURN' text and type contl click.
 
 Only works with proc report?
 Only report can remove the excess levels in the table of contents?
@@ -44,7 +45,6 @@ https://github.com/rogerjdeangelis/utl_dropping-down-to-powershell-and-convertin
 https://github.com/rogerjdeangelis/utl_ods_pdf_and_rtf_two_different_page_titles_on_the_same_page
 https://github.com/rogerjdeangelis/utl_report_does_not_show_group_variable_across_new_pages_in_rtf_and_pdf
 
-
 /*                   _
 (_)_ __  _ __  _   _| |_
 | | `_ \| `_ \| | | | __|
@@ -59,6 +59,7 @@ sashelp.class(where=(sex='F'))
 sashelp.class(where=(sex='M'))
 
 /*
+
  _ __  _ __ ___   ___ ___  ___ ___
 | `_ \| `__/ _ \ / __/ _ \/ __/ __|
 | |_) | | | (_) | (_|  __/\__ \__ \
@@ -68,6 +69,9 @@ sashelp.class(where=(sex='M'))
 
 
 %utlfkil(d:/rtf/utl_toc.rtf);
+
+title;
+footnote;
 
 ods listing close;
 
@@ -83,6 +87,10 @@ title "~S={just=left font_weight=bold fontsize=16pt} Females";
   col sex name age height weight;
   define sex /group noprint;
   break before sex / contents=" " page;
+  compute after / style={font_weight=bold};
+   lyn = "~S={URL='utl_toc.rtf#PAGE=1' just=left color=blue } --RETURN--" ;
+   line lyn $64.;
+  endcomp;
 run;quit;
 ods rtf startpage=no;  /* for some reason this eliminates blank pages            */
 
@@ -93,9 +101,12 @@ title "~S={just=left font_weight=bold font_size=12pt fontsize=16pt} Males";
   col sex name age height weight;
   define sex /group noprint;
   break before sex / contents=" " page;
+  compute after / style={font_weight=bold};
+   lyn = "~S={URL='utl_toc.rtf#PAGE=1' just=left color=blue } --RETURN--" ;
+   line lyn $64.;
+  endcomp;
 run;quit;
 ods rtf startpage=no; /* for some reason this eliminates blank pages */
-
 
 ods rtf close;
 ods listing;
@@ -107,6 +118,7 @@ ods listing;
  \___/ \__,_|\__| .__/ \__,_|\__|
                 |_|
 */
+  footnote "~S={URL='utl_toc.rtf#PAGE=1' just=left color=blue } --RETURN--" ;
 
 /**************************************************************************************************************************/
 /*                                                                                                                        */
@@ -142,8 +154,9 @@ ods listing;
 /*  Ronald           15         67        133                                                                             */
 /*  Thomas           11       57.5         85                                                                             */
 /*  William          15       66.5        112                                                                             */
-/*                                                                                                                        */
-/*                                                                                                                        */
+/* +--------------+                                                                                                       */
+/* | -- RETURN -- |                                                                                                       */
+/* +--------------+                                                                                                       */
 /*                                                                                                                        */
 /*  NAME            AGE     HEIGHT     WEIGHT                                                                             */
 /*                                                                                                                        */
@@ -156,6 +169,9 @@ ods listing;
 /*  Judy             14       64.3         90                                                                             */
 /*  Louise           12       56.3         77                                                                             */
 /*  Mary             15       66.5        112                                                                             */
+/* +--------------+                                                                                                       */
+/* | -- RETURN -- |                                                                                                       */
+/* +--------------+                                                                                                       */
 /*                                                                                                                        */
 /**************************************************************************************************************************/
 
@@ -166,6 +182,7 @@ ods listing;
  \___|_| |_|\__,_|
 
 */
+
 
 
 
