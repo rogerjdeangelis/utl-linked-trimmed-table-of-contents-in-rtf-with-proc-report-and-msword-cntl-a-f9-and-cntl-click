@@ -4,10 +4,10 @@
 
 Creating a linked trimmed table of contents in rtf and msword using cntl a f9 and cntl click;
 
-Don't forget to highlight the TOC and hit cntl-a and f9 in word to fill in the table of contents.
-If you get a warning, you may have to change settings to allow hyperlinks.  
+Don't forget to highlight the TOC and hit cntl-a anf f9 in word to fill in the table of contents.
 To execute the link put the cursor on any toc entry in the YOC and hit cnth-left-click (cntl left-mouse-button)
 To return to the TOC from any page put the cursor on the blue  'RETURN' text and type contrl click.
+If you get a warning, you may have to change settings to allow hyperlinks.
 
 Only works with proc report?
 Only report can remove the excess levels in the table of contents?
