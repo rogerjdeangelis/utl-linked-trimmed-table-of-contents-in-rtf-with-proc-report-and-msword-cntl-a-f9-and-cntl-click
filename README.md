@@ -1,21 +1,13 @@
-# utl-linked-trimmed-table-of-contents-in-rtf-with-proc-report-and-msword-cntl-a-f9-and-cntl-click
-Creating a linked trimmed table of contents in rtf and msword using cntl a f9 and cntl click
     %let pgm=utl-linked-trimmed-table-of-contents-in-rtf-with-proc-report-and-msword-cntl-a-f9-and-cntl-click;
 
     %stop_submission; /* for development */
 
-    RTF                                                                                                                                                        
-    https://tinyurl.com/5h8kn7tj                                                                                                                               
-    https://github.com/rogerjdeangelis/utl-linked-trimmed-table-of-contents-in-rtf-with-proc-report-and-msword-cntl-a-f9-and-cntl- click/blob/main/utl_toc.rtf    
-    
-    DOC  (open the rtf file with msword and save as docx(                                                                                                      
-    https://tinyurl.com/5ebcc5dm                                                                                                                               
-    https://github.com/rogerjdeangelis/utl-linked-trimmed-table-of-contents-in-rtf-with-proc-report-and-msword-cntl-a-f9-and-cntl-click/blob/main/utl_toc.docx 
-
     Creating a linked trimmed table of contents in rtf and msword using cntl a f9 and cntl click;
 
-    Don't forget to hit cntl-a anf f9 in word to fill in the table of contents.
+    Don't forget to highlight the TOC and hit cntl-a anf f9 in word to fill in the table of contents.
     To execute the link put the cursor on any toc entry in the YOC and hit cnth-left-click (cntl left-mouse-button)
+    To return to the TOC from any page put the cursor on the blue  'RETURN' text and type contrl click.
+    If you get a warning, you may have to change settings to allow hyperlinks.
 
     Only works with proc report?
     Only report can remove the excess levels in the table of contents?
@@ -25,6 +17,16 @@ Creating a linked trimmed table of contents in rtf and msword using cntl a f9 an
     Cntl-A and f9 executes and embedded  rtf script to populate the TOC.
     The tables on contents is trimmed by using report options contents=" "
     and break before header / contents=" " page;
+
+    RTF
+    https://tinyurl.com/5h8kn7tj
+    https://github.com/rogerjdeangelis/utl-linked-trimmed-table-of-contents-in-rtf-with-proc-report-and-msword-cntl-a-f9-and-cntl-click/blob/main/utl_toc.
+
+
+    DOC  (open the rtf file with msword and save as docx(
+    https://tinyurl.com/5ebcc5dm
+    https://github.com/rogerjdeangelis/utl-linked-trimmed-table-of-contents-in-rtf-with-proc-report-and-msword-cntl-a-f9-and-cntl-click/blob/main/utl_toc.
+
 
 
     RELATED RTF REPOS
@@ -44,7 +46,6 @@ Creating a linked trimmed table of contents in rtf and msword using cntl a f9 an
     https://github.com/rogerjdeangelis/utl_ods_pdf_and_rtf_two_different_page_titles_on_the_same_page
     https://github.com/rogerjdeangelis/utl_report_does_not_show_group_variable_across_new_pages_in_rtf_and_pdf
 
-
     /*                   _
     (_)_ __  _ __  _   _| |_
     | | `_ \| `_ \| | | | __|
@@ -59,6 +60,7 @@ Creating a linked trimmed table of contents in rtf and msword using cntl a f9 an
     sashelp.class(where=(sex='M'))
 
     /*
+
      _ __  _ __ ___   ___ ___  ___ ___
     | `_ \| `__/ _ \ / __/ _ \/ __/ __|
     | |_) | | | (_) | (_|  __/\__ \__ \
@@ -68,6 +70,9 @@ Creating a linked trimmed table of contents in rtf and msword using cntl a f9 an
 
 
     %utlfkil(d:/rtf/utl_toc.rtf);
+
+    title;
+    footnote;
 
     ods listing close;
 
@@ -83,6 +88,10 @@ Creating a linked trimmed table of contents in rtf and msword using cntl a f9 an
       col sex name age height weight;
       define sex /group noprint;
       break before sex / contents=" " page;
+      compute after / style={font_weight=bold};
+       lyn = "~S={URL='utl_toc.rtf#PAGE=1' just=left color=blue } --RETURN--" ;
+       line lyn $64.;
+      endcomp;
     run;quit;
     ods rtf startpage=no;  /* for some reason this eliminates blank pages            */
 
@@ -93,9 +102,12 @@ Creating a linked trimmed table of contents in rtf and msword using cntl a f9 an
       col sex name age height weight;
       define sex /group noprint;
       break before sex / contents=" " page;
+      compute after / style={font_weight=bold};
+       lyn = "~S={URL='utl_toc.rtf#PAGE=1' just=left color=blue } --RETURN--" ;
+       line lyn $64.;
+      endcomp;
     run;quit;
     ods rtf startpage=no; /* for some reason this eliminates blank pages */
-
 
     ods rtf close;
     ods listing;
@@ -107,6 +119,7 @@ Creating a linked trimmed table of contents in rtf and msword using cntl a f9 an
      \___/ \__,_|\__| .__/ \__,_|\__|
                     |_|
     */
+      footnote "~S={URL='utl_toc.rtf#PAGE=1' just=left color=blue } --RETURN--" ;
 
     /**************************************************************************************************************************/
     /*                                                                                                                        */
@@ -142,8 +155,9 @@ Creating a linked trimmed table of contents in rtf and msword using cntl a f9 an
     /*  Ronald           15         67        133                                                                             */
     /*  Thomas           11       57.5         85                                                                             */
     /*  William          15       66.5        112                                                                             */
-    /*                                                                                                                        */
-    /*                                                                                                                        */
+    /* +--------------+                                                                                                       */
+    /* | -- RETURN -- |                                                                                                       */
+    /* +--------------+                                                                                                       */
     /*                                                                                                                        */
     /*  NAME            AGE     HEIGHT     WEIGHT                                                                             */
     /*                                                                                                                        */
@@ -156,6 +170,9 @@ Creating a linked trimmed table of contents in rtf and msword using cntl a f9 an
     /*  Judy             14       64.3         90                                                                             */
     /*  Louise           12       56.3         77                                                                             */
     /*  Mary             15       66.5        112                                                                             */
+    /* +--------------+                                                                                                       */
+    /* | -- RETURN -- |                                                                                                       */
+    /* +--------------+                                                                                                       */
     /*                                                                                                                        */
     /**************************************************************************************************************************/
 
@@ -166,5 +183,6 @@ Creating a linked trimmed table of contents in rtf and msword using cntl a f9 an
      \___|_| |_|\__,_|
 
     */
+
 
 
