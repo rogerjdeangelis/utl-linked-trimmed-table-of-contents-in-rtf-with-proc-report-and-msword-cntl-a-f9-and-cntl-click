@@ -18,6 +18,10 @@
     The tables on contents is trimmed by using report options contents=" "
     and break before header / contents=" " page;
 
+    github                                                                                                                              
+    https://tinyurl.com/5t3m28aj                                                                                                        
+    https://github.com/rogerjdeangelis/utl-linked-trimmed-table-of-contents-in-rtf-with-proc-report-and-msword-cntl-a-f9-and-cntl-click 
+
     RTF
     https://tinyurl.com/5h8kn7tj
     https://github.com/rogerjdeangelis/utl-linked-trimmed-table-of-contents-in-rtf-with-proc-report-and-msword-cntl-a-f9-and-cntl-click/blob/main/utl_toc.
